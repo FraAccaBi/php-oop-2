@@ -16,6 +16,8 @@ public function functionName( MyClass $variable, String $variable2, Int $variabl
 <?php
 
 require __DIR__ . '/Models/Product.php';
+require __DIR__ . '/Models/User.php';
+require __DIR__ . '/Models/CreditCard.php';
 
 $products = [];
 $products[] = new Product('Cuccetta', 10, 'http://...', 20);
@@ -23,7 +25,13 @@ $products[] = new Product('Cuccetta', 10, 'http://...', 20);
 $products[] = new Product('Cuccetta', 10, 'http://...', 20);
 $products[] = new Product('Cuccetta', 10, 'http://...', 20);
 
-var_dump($products);
+$user = new User('Riccardo', 'Salladini', 'ricky@gmail.com', 'password', false, 0);
+$user->signUp();
+$card = new CreditCard(6465466, new DateTime('2024-05-12'), $user);
+var_dump($card);
+var_dump($card->checkDate());
+
+
 
 
 
